@@ -883,19 +883,6 @@ GDKPIXBUF_PREFIX="`$PKG_CONFIG --variable=prefix gdk-pixbuf-2.0`"
 AC_SUBST(GLIB_PREFIX)
 AC_SUBST(GDKPIXBUF_PREFIX)
 
-dnl ================================================================
-dnl I18n stuff.
-dnl ================================================================
-AM_GNU_GETTEXT_VERSION([0.19])
-AM_GNU_GETTEXT([external])
-
-GETTEXT_PACKAGE="cogl"
-AC_SUBST(GETTEXT_PACKAGE)
-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,
-                   "$GETTEXT_PACKAGE",
-                   [The prefix for our gettext translation domains.])
-AS_ALL_LINGUAS
-
 
 AC_SUBST(COGL_PKG_REQUIRES)
 if test -n "$COGL_PKG_REQUIRES"; then
@@ -1088,7 +1075,6 @@ tests/conform/Makefile
 tests/unit/Makefile
 tests/micro-perf/Makefile
 tests/data/Makefile
-po/Makefile.in
 )
 
 dnl ================================================================
@@ -1138,7 +1124,6 @@ echo ""
 echo " • Extra:"
 echo "        Build introspection data: ${enable_introspection}"
 echo "        Build unit tests: ${enable_unit_tests}"
-echo "        Enable internationalization: ${USE_NLS}"
 
 echo ""
 
